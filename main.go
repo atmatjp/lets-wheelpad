@@ -64,16 +64,29 @@ func main() {
 
 	var frameEvents []*evdev.InputEvent
 
+	eventChan := make(chan *evdev.InputEvent)
+	errChan := make(chan error, 1)
+
+	go func() {
+		for {
+			e, err := physDev.ReadOne()
+			if err != nil {
+				errChan <- err
+				return
+			}
+			eventChan <- e
+		}
+	}()
+
 	for {
 		select {
 		case <-sigChan:
+			log.Println("Received termination signal, shutting down...")
 			return
-		default:
-			e, err := physDev.ReadOne()
-			if err != nil {
-				return
-			}
-
+		case err := <-errChan:
+			log.Printf("Read error: %v", err)
+			return
+		case e := <-eventChan:
 			frameEvents = append(frameEvents, e)
 
 			if e.Type == evdev.EV_SYN && e.Code == evdev.SYN_REPORT {
