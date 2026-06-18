@@ -1,0 +1,23 @@
+[device]
+name = "SynPS/2 Synaptics TouchPad"
+
+[wheelpad]
+center_x = 3495
+center_y = 2965
+deadzone = 1800
+sensitivity = 0.8
+hires_step = 60
+natural_scroll = false
+
+[speed]
+thresholds = [
+    { velocity = 8.0, multiplier = 4 },
+    { velocity = 4.0, multiplier = 3 },
+    { velocity = 2.0, multiplier = 2 }
+]
+
+[inertia]
+enabled = true
+friction = 0.85
+min_velocity = 0.5
+interval_ms = 16

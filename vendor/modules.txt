@@ -1,0 +1,9 @@
+# github.com/holoplot/go-evdev v0.0.0-20260504100651-66d1748fe847
+## explicit; go 1.18
+github.com/holoplot/go-evdev
+# github.com/pelletier/go-toml/v2 v2.4.0
+## explicit; go 1.21.0
+github.com/pelletier/go-toml/v2
+github.com/pelletier/go-toml/v2/internal/parserbridge
+github.com/pelletier/go-toml/v2/internal/tracker
+github.com/pelletier/go-toml/v2/unstable

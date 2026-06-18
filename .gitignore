@@ -1,0 +1,9 @@
+# Binary
+wheelpad
+wheelpad-go
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
